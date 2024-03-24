@@ -1,2 +1,55 @@
-<div id="app"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 1. Data Binding -->
 
+    <!-- {{ callibracket ထဲမှာ javascript code တွေရေးရတယ် }} -->
+    <!-- 
+        Vue ရဲ့သဘောတရားက html နဲ့ js တွေပေါင်းရေးတာဖြစ်တယ် အောက်မှာ div app ဆိုပြီး html တစ်ခုရေးထားတယ် ပြီးတော့ အောက်က
+        script ထဲမှာ new Vue ဆိုတဲ့ object တစ်ခုဆောက်ထားတယ် အဲ့ထဲက ရေးပေးရတဲ့ element el နဲ့ချိတ်ထားတဲ့ html area က 
+        အဲ့ဒီ vue object ကြီးတစ်ခုလုံးကို ပိုင်သွားတယ် ပြီးတော့ javascript ရဲ့ {{}} ကနေ data ဆိုတဲ့ object အထဲက message တွေကိုဆွဲထုတ်နိုင်တာဖြစ်တယ်
+        ပြောရရင် id app ဆိုတဲ့ html က vue object ရဲ့ el ကနေချိတ်ဆက်သွားပြီး data အထဲကစာတွေကို ထုတ်ယူနိုင်တာဖြစ်တယ်
+    -->
+    <div id="app">
+        <h1> {{ message }} </h1>
+        <p> {{ title }} </p>
+        <span> {{welcome}} </span>
+        <h1> {{1 + 2}} </h1>
+        <!-- condition အောက်ကလိုစစ်ရင် if else တွေမရပဲ ternary operator တွေပဲရမယ် -->
+        <h4> {{ true ? "True" : "False"}} </h4>
+        <!-- အောက်လို el ကနေ ချိတ်ဆက်မထားတဲ့ တခြား vue object က data တွေကိုတော့ ယူလို့မရပါဘူး -->
+        <h1> {{welcome}} </h1>
+    </div>
+
+    <div id="other"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <script>
+
+        new Vue ({
+            // el = element
+            el: '#app',
+            // react မှာ state / vue မှာ data သူ့အထဲမှာ function တွေပဲရမယ် arrow function တွေမရဘူး
+            data: {
+                message: 'Hello Vue',
+                title: 'Frontend Library',
+            }
+        })
+
+        new Vue ({
+            el: '#other',
+            data: {
+                welcome: 'Welcome to Vue'
+            }
+        })
+
+    </script>
+
+</body>
+</html>
