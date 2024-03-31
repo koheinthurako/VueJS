@@ -8,6 +8,7 @@
 <body>
     
     <!-- 1. Data Binding -->
+    <!-- 2. List Rendering -->
 
     <!-- {{ callibracket ထဲမှာ javascript code တွေရေးရတယ် }} -->
     <!-- 
@@ -25,6 +26,24 @@
         <h4> {{ true ? "True" : "False"}} </h4>
         <!-- အောက်လို el ကနေ ချိတ်ဆက်မထားတဲ့ တခြား vue object က data တွေကိုတော့ ယူလို့မရပါဘူး -->
         <h1> {{welcome}} </h1>
+        <ul>
+            <!-- Vue Looping : Array Loop -->
+            <li v-for="color in colors">{{color}}</li>
+            <!-- <li> {{ colors[0] }} </li>
+            <li> {{ colors[1] }} </li>
+            <li> {{ colors[2] }} </li>
+            <li> {{ colors[3] }} </li> -->
+        </ul>
+
+        <ol>
+            <!-- Vue Looping : Array Object Loop -->
+            <li v-for="user in users">
+                {{user.name}} lives in {{user.address}}
+            </li>
+            <!-- <li>{{ users[0].name}}</li> -->
+
+        </ol>
+
     </div>
 
     <div id="other"></div>
@@ -39,13 +58,31 @@
             data: {
                 message: 'Hello Vue',
                 title: 'Frontend Library',
+                // Array Loop
+                colors: ['black', 'white', 'red', 'blue', 'pink'],
+                // Array Object Loop
+                users: [
+                    {
+                        name: "Thet Zaw Hein",
+                        address: "Yangon", 
+                    },
+                    {
+                        name: "Ko Hein",
+                        address: "Mandalay", 
+                    },
+                    {
+                        name: "Aung Aung",
+                        address: "NayPyiTaw", 
+                    }
+                ]
             }
         })
 
         new Vue ({
             el: '#other',
             data: {
-                welcome: 'Welcome to Vue'
+                welcome: 'Welcome to Vue',
+                colors: ['red', 'green']
             }
         })
 
